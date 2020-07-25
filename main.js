@@ -11,10 +11,6 @@ add.addEventListener('click', () => {
   cb.innerText = 'check_box_outline_blank';
   cb.style.color = '#fff';
 
-  cb.addEventListener('click', () => {
-    switchCbIcon(cb);
-  });
-
   var et = document.createElement('p');
   et.classList.add('text');
   et.innerText = document.getElementById('input').value;
@@ -22,11 +18,15 @@ add.addEventListener('click', () => {
     autogrow(et);
   });
 
+  cb.addEventListener('click', () => {
+    switchCbIcon(cb, et);
+  });
+
   item.appendChild(cb);
   item.appendChild(et);
 
   list.appendChild(item);
-  
+
   document.getElementById('input').value = '';
 });
 
@@ -43,13 +43,17 @@ del.addEventListener('click', () => {
   });
 });
 
-function switchCbIcon(cb) {
+function switchCbIcon(cb, et) {
   if(cb.innerText === 'check_box') {
     cb.innerText = 'check_box_outline_blank';
     cb.style.color = '#fff';
+
+    et.style.textDecoration = 'none';
   } else {
     cb.innerText = 'check_box';
     cb.style.color = '#FF00AA';
+
+    et.style.textDecoration = 'line-through';
   }
 }
 
