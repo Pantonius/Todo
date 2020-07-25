@@ -26,6 +26,8 @@ add.addEventListener('click', () => {
   item.appendChild(et);
 
   list.appendChild(item);
+  
+  document.getElementById('input').value = '';
 });
 
 var del = document.getElementById('delete');
